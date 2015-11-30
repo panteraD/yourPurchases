@@ -7,121 +7,37 @@
     <groupId>com.chernenkov.yourPurchases</groupId>
     <artifactId>yourPurchases</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>ear</packaging>
+    <packaging>pom</packaging>
 
-    <properties>
-        <glassfish.directory>C:\Program Files\Java\glassfish4</glassfish.directory>
-        <glassfish.directory.autodeploy>C:\Program Files\Java\glassfish4\glassfish\domains\domain2\autodeploy</glassfish.directory.autodeploy>
-    </properties>
-
+    <modules>
+        <module>client</module>
+        <module>server</module>
+        <module>ear</module>
+    </modules>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ear-plugin</artifactId>
-                <!--version>2.10.1</version-->
-
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                        </manifest>
-                    </archive>
-                    <!--outputDirectory>${glassfish.directory.autodeploy}</outputDirectory-->
-                    <generateApplicationXml>true</generateApplicationXml>
-
-                </configuration>
-            </plugin>
-
-            <!--glassfish plugin -->
-
-            <!--plugin>
-                <groupId>org.glassfish.maven.plugin</groupId>
-                <artifactId>maven-glassfish-plugin</artifactId>
-                <version>2.1</version>
-                <executions>
-
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-
-
-
-
-                </executions>
-
-                <configuration>
-                    <echo>true</echo>
-                    <debug>true</debug>
-                    <terse>true</terse>
-                    <user>admin</user>
-
-                    <adminPassword>admin</adminPassword>
-                    <glassfishDirectory>${glassfish.directory}</glassfishDirectory>
-                    <domainDirectory>${glassfish.directory}/glassfish/domains/</domainDirectory>
-                    <domain>
-                        <name>domain2</name>
-                        <adminPort>4848</adminPort>
-                        <httpPort>8080</httpPort>
-                        <httpsPort>8443</httpsPort>
-                    </domain>
-                    <components>
-                        <component>
-                            <name>yourPurchases</name>
-                            <artifact>target/yourPurchases-1.0-SNAPSHOT.ear</artifact>
-                        </component>
-                    </components>
-                </configuration>
-
-            </plugin-->
-
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
                 <version>1.1.0.Alpha4</version>
                 <configuration>
-
+                    <skip>true</skip>
                     <filename>yourPurchases-1.0-SNAPSHOT.ear</filename>
-                    <jboss-home></jboss-home>
+                    <jboss-home>C:\Program Files\Java\wildfly-9.0.2.Final</jboss-home>
                 </configuration>
-                <executions>
-
-                    
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>deploy</goal>
-
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
-
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
         </plugins>
-
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.chernenkov.yourPurchases</groupId>
-            <artifactId>client</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.chernenkov.yourPurchases</groupId>
-            <artifactId>server</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-
-    </dependencies>
 
 </project>
