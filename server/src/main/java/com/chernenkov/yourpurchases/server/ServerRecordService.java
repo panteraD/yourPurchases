@@ -3,6 +3,7 @@ package com.chernenkov.yourpurchases.server;
 import javax.ws.rs.*;
 
 
+
 @Path("/records")
 public class ServerRecordService {
 

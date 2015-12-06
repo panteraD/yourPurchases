@@ -5,15 +5,35 @@
          version="3.1">
 
 
-
     <servlet>
         <servlet-name>jersey-servlet</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.chernenkov.yourpurchases.server</param-value>
-        </init-param>
+        <!--<init-param>-->
+            <!--<param-name>com.sun.jersey.config.property.packages</param-name>-->
+            <!--<param-value>com.chernenkov.yourpurchases.server</param-value>-->
+        <!--</init-param>-->
+
+
+        <!--specify resource class, witch should  import javax.ws.rs.core.Application;dd-->
+        <!--<init-param>-->
+            <!--<param-name>javax.ws.rs.Application</param-name>-->
+            <!--<param-value>com.chernenkov.yourpurchases.server</param-value>-->
+        <!--</init-param>-->
+
     </servlet>
+    <!-- no need in this-->
+   <!-- <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.resources</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.providers</param-name>
+        <param-value>false</param-value>
+    </context-param>-->
     <servlet-mapping>
         <servlet-name>jersey-servlet</servlet-name>
         <url-pattern>/rest/*</url-pattern>

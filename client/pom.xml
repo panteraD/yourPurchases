@@ -20,10 +20,8 @@
                 <configuration>
                     <!--module>com.chernenkov.yourpurchases.client.Main</module-->
                 </configuration>
-
                 <executions>
                     <execution>
-
                         <goals>
                             <goal>compile</goal>
                         </goals>

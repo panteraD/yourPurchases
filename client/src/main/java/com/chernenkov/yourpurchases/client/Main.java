@@ -5,13 +5,12 @@ import com.google.gwt.http.client.*;
 import com.google.gwt.user.client.Window;
 
 
-
 public class Main implements EntryPoint {
 
 
     public void onModuleLoad() {
         RequestBuilder builder =
-                new RequestBuilder(RequestBuilder.GET, "/server-1.0-SNAPSHOT/rest/records/double?string=" + URL.encodeQueryString("привет"));
+                new RequestBuilder(RequestBuilder.GET, "/server/rest/records/double?string=" + URL.encodeQueryString("hello"));
 
         builder.setCallback(new RequestCallback() {
             public void onResponseReceived(Request request, Response response) {
@@ -28,9 +27,5 @@ public class Main implements EntryPoint {
         } catch (RequestException e) {
             e.printStackTrace();
         }
-
-
-
     }
-
 }
