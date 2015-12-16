@@ -18,6 +18,7 @@
                 <artifactId>gwt-maven-plugin</artifactId>
                 <version>2.7.0</version>
                 <configuration>
+                    <jsInteropMode>JS</jsInteropMode>
                     <!--module>com.chernenkov.yourpurchases.client.Main</module-->
                 </configuration>
                 <executions>
@@ -32,6 +33,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
                 <executions>
                     <execution>
                         <id>default-compile</id>
@@ -50,6 +52,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.vaadin.polymer</groupId>
+            <artifactId>vaadin-gwt-polymer-elements</artifactId>
+            <version>1.2.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>
