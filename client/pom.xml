@@ -7,8 +7,15 @@
     <artifactId>client</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>client</name>
-
     <packaging>war</packaging>
+
+
+    <properties>
+        <gwtVersion>2.8.0-SNAPSHOT</gwtVersion>
+        <gwtPolymerVersion>1.2.1.0</gwtPolymerVersion>
+    </properties>
+
+
 
     <build>
         <plugins>
@@ -19,7 +26,9 @@
                 <version>2.7.0</version>
                 <configuration>
                     <jsInteropMode>JS</jsInteropMode>
-                    <!--module>com.chernenkov.yourpurchases.client.Main</module-->
+                    <!--level 9  is max-->
+                    <optimizationLevel>0</optimizationLevel>
+                    <draftCompile>true</draftCompile>
                 </configuration>
                 <executions>
                     <execution>
@@ -57,10 +66,27 @@
         <dependency>
             <groupId>com.vaadin.polymer</groupId>
             <artifactId>vaadin-gwt-polymer-elements</artifactId>
-            <version>1.2.1.0</version>
+            <version>${gwtPolymerVersion}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <scope>provided</scope>
+            <version>${gwtVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-codeserver</artifactId>
+            <scope>provided</scope>
+            <version>${gwtVersion}</version>
+        </dependency>
+
+
+
     </dependencies>
+
 
 
 </project>
