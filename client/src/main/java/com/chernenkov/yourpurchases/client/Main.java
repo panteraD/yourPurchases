@@ -11,7 +11,7 @@ public class Main implements EntryPoint {
 
 
     public void onModuleLoad() {
-        
+
         PaperButton button = new PaperButton("Press me!");
         button.setRaised(true);
         RootPanel.get().add(button);
